@@ -34,6 +34,8 @@ https://www.figma.com/file/POTY6idycFPKPd1O9koCPW/Figma-Admin-Dashboard-UI-Kit-(
 ## JSON Server (mock)
 
 https://github.com/typicode/json-server
+
+npm install -D json-server
 # Book
 
 ## Книга Чистий код.
