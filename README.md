@@ -22,11 +22,26 @@ https://git-scm.com/
 
 https://reactrouter.com/
 
+## Mui
+
+https://mui.com/
+https://mui.com/material-ui/react-css-baseline/#main-content
+
 ## design
 
 https://www.figma.com/file/POTY6idycFPKPd1O9koCPW/Figma-Admin-Dashboard-UI-Kit-(Community)
 
+## JSON Server (mock)
+
+https://github.com/typicode/json-server
 # Book
 
 ## Книга Чистий код.
 Роберт Мартін
+
+### Architecture
+
+## React Flux Concept
+
+
+https://www.javatpoint.com/react-flux-concept

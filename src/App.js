@@ -1,14 +1,11 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
   return (
     <>
-      <nav>
-        <Link to="login">Login</Link> | <Link to="about">About</Link>
-      </nav>
-      <main className="wrapper">
-        <Outlet />
-      </main>
+      <CssBaseline />
+      <Outlet />
     </>
   );
 }

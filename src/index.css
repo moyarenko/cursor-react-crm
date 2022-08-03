@@ -1,12 +1,43 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: 100vh;
   width: 100%;
+  padding: 140px 30px;
 }
 
-.wrapper > * {
+.wrapper.dark {
+  background-color: #363740;
+}
+
+.login-form {
+  background: #FFFFFF;
+  border: 1px solid #DFE0EB;
+  border-radius: 8px;
+  height: 450px;
+  width: 380px;
+  padding: 40px 32px;
+}
+
+.login-form .wrapper-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form .sub-title {
+  color: #A4A6B3;
   text-align: center;
+  letter-spacing: 0.4px;
+  margin-top: 13px;
+  font-weight: 700;
+}
+
+.login-form .sub-title-2 {
+  color: #9FA2B4;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 48px;
 }
