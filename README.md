@@ -43,9 +43,19 @@ https://github.com/typicode/json-server
 
 https://www.npmjs.com/package/yup
 
+# Form State Management
+
 ## React hook form
 
 https://react-hook-form.com/
+
+## Formik
+
+https://formik.org/docs/overview
+
+## Redux form
+
+https://redux-form.com/8.3.0/
 
 # extensions
 ## React dev toots for Chrome

@@ -1,16 +1,42 @@
-import { TextField, Typography, Button } from '@mui/material';
+import { TextField, Typography, Button, FormHelperText } from '@mui/material';
 import { useCallback, useState } from 'react';
 import logo from '../assets/logo.svg';
+import { object, string } from 'yup';
+
+const schema = object().shape({
+  email: string().required('Field is required').email('Email is not correct'),
+  password: string().required('Field is required'),
+});
 
 const Login = ({ onAuth }) => {
   const [email, setEmail] = useState('');
+  const [errors, setErrors] = useState({});
   const [password, setPassword] = useState('');
 
   const handleSubmit = useCallback(async () => {
-    const response = await fetch(`http://localhost:5000/users?email=${email}&password=${password}`);
-    const data = await response.json();
-    console.log('User: ', data[0]);
-    onAuth(data[0]);
+    const formData = {
+      email,
+      password,
+    };
+
+    try {
+      await schema.validate(formData);
+      const response = await fetch(`http://localhost:5000/users?email=${email}&password=${password}`);
+      const data = await response.json();
+      console.log('User: ', data[0]);
+      onAuth(data[0]);
+    } catch (error) {
+      if (error.name === 'ValidationError') {
+        setErrors({
+          [error.path]: error.message,
+        });
+      } else {
+        setErrors({
+          server: error.message,
+        });
+      }
+      console.log('validationResult: ', JSON.stringify(error));
+    }
   }, [email, password, onAuth]);
 
   return (
@@ -31,14 +57,19 @@ const Login = ({ onAuth }) => {
           onChange={(e) => setEmail(e.target.value)}
           fullWidth
           label="Email address"
+          error={!!errors.email}
         />
+        {<FormHelperText>{errors.email}</FormHelperText>}
         <TextField
           margin="dense"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           fullWidth
           label="Password"
+          error={!!errors.password}
         />
+        {<FormHelperText>{errors.password}</FormHelperText>}
+        {<FormHelperText>{errors.server}</FormHelperText>}
         <Button
           onClick={handleSubmit}
           sx={{
